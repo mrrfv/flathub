@@ -12,14 +12,11 @@ finish-args:
   - --share=network
   - --share=ipc
   - --device=dri
-  - --socket=x11
+  - --socket=fallback-x11
   - --socket=wayland
   - --socket=pulseaudio
-  - --talk-name=org.freedesktop.DBus
+  - --env=ELECTRON_OZONE_PLATFORM_HINT=auto
   - --talk-name=org.freedesktop.IBus
-  - --talk-name=org.freedesktop.portal.Desktop
-  - --talk-name=org.freedesktop.portal.Flatpak
-  - --talk-name=org.freedesktop.portal.IBus
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.a11y.Bus
   - --talk-name=org.freedesktop.portal
