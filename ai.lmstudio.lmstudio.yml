@@ -1,0 +1,77 @@
+app-id: ai.lmstudio.lmstudio
+runtime: org.freedesktop.Platform
+runtime-version: "23.08"
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: "23.08"
+command: lm-studio
+separate-locales: false
+rename-icon: lm-studio
+finish-args:
+  - --filesystem=~/.lmstudio:create
+  - --share=network
+  - --share=ipc
+  - --device=dri
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --talk-name=org.freedesktop.DBus
+  - --talk-name=org.freedesktop.IBus
+  - --talk-name=org.freedesktop.portal.Desktop
+  - --talk-name=org.freedesktop.portal.Flatpak
+  - --talk-name=org.freedesktop.portal.IBus
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.a11y.Bus
+  - --talk-name=org.freedesktop.portal
+modules:
+  - name: unappimage
+    buildsystem: simple
+    build-commands:
+      - make -C squashfs-tools install INSTALL_DIR=/app/bin
+    sources:
+      - type: git
+        url: https://github.com/refi64/unappimage
+        commit: d7f86f2a0d7ec3a69211125207d5f127386b849a
+
+  - name: xrandr
+    sources:
+      - sha256: 7b99edb7970a1365eaf5bcaf552144e4dfc3ccf510c4abc08569849929fb366e
+        type: archive
+        url: https://www.x.org/archive/individual/app/xrandr-1.5.1.tar.gz
+
+  - name: lm-studio
+    buildsystem: simple
+    cleanup:
+      - squashfs-root
+    sources:
+      - type: extra-data
+        url: https://installers.lmstudio.ai/linux/x64/0.3.25-2/LM-Studio-0.3.25-2-x64.AppImage
+        size: 911625699
+        sha256: e4a619a50b7463ba112245d9e4dcafd859029744fe287b280b5ccbe138db70de
+        filename: lm-studio.appimage
+        x-checker-data:
+          type: electron-updater
+
+      - type: script
+        dest-filename: lm-studio
+        commands:
+          - exec zypak-wrapper /app/extra/bin/lm-studio --no-sandbox "$0"
+
+      - type: file
+        path: ai.lmstudio.lmstudio.appdata.xml
+
+      - type: file
+        path: ai.lmstudio.lmstudio.desktop
+
+      - type: file
+        path: apply_extra.sh
+
+      - type: file
+        path: icons/lm-studio.png
+
+    build-commands:
+      - install -D ./apply_extra.sh "${FLATPAK_DEST}/bin/apply_extra"
+      - install lm-studio "${FLATPAK_DEST}/bin/"
+      - install -Dm644 ai.lmstudio.lmstudio.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm644 ai.lmstudio.lmstudio.appdata.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml"
+      - install -Dm644 -t ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps lm-studio.png
