@@ -62,19 +62,19 @@
 	<screenshots>
 		<screenshot type="default">
 			<image>
-				https://raw.githubusercontent.com/mrrfv/lm-studio-flatpak/screenshots/conversation.png
+				https://raw.githubusercontent.com/mrrfv/flathub/b60fecb9ec6f5332b94f623f8de441687039feec/screenshots/conversation.png
 			</image>
 			<caption>Conversation with a large language model</caption>
 		</screenshot>
 		<screenshot>
 			<image>
-				https://raw.githubusercontent.com/mrrfv/lm-studio-flatpak/screenshots/api.png
+				https://raw.githubusercontent.com/mrrfv/flathub/b60fecb9ec6f5332b94f623f8de441687039feec/screenshots/api.png
 			</image>
 			<caption>API functionality</caption>
 		</screenshot>
 		<screenshot>
 			<image>
-				https://raw.githubusercontent.com/mrrfv/lm-studio-flatpak/screenshots/models.png
+				https://raw.githubusercontent.com/mrrfv/flathub/b60fecb9ec6f5332b94f623f8de441687039feec/screenshots/models.png
 			</image>
 			<caption>Large language model browser</caption>
 		</screenshot>
