@@ -42,9 +42,9 @@ modules:
       - squashfs-root
     sources:
       - type: extra-data
-        url: https://installers.lmstudio.ai/linux/x64/0.3.25-2/LM-Studio-0.3.25-2-x64.AppImage
-        size: 911625699
-        sha256: e4a619a50b7463ba112245d9e4dcafd859029744fe287b280b5ccbe138db70de
+        url: https://installers.lmstudio.ai/linux/x64/0.3.26-6/LM-Studio-0.3.26-6-x64.AppImage
+        size: 994158315
+        sha256: 50a768a70fec32e5d8e3ad0a03d3a3f1c90035d143b76540a44b126751a1d56a
         filename: lm-studio.appimage
         x-checker-data:
           type: electron-updater

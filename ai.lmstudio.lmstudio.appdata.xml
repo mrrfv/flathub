@@ -34,6 +34,20 @@
 	<launchable type="desktop-id">ai.lmstudio.lmstudio.desktop</launchable>
 
 	<releases>
+	    <release version="0.3.26" date="2025-09-15">
+			<url type="details">https://lmstudio.ai/blog/lmstudio-v0.3.26</url>
+			<description>
+    			<ul>
+         			<li>Added new CLI log streaming options: --source, --filter, --json, and --stats</li>
+         			<li>Stream server logs with CLI</li>
+         			<li>Stream model input/output with CLI</li>
+         			<li>Added native context menus across the app</li>
+         			<li>Added "Enclose in Folder" bulk action for multiple chats</li>
+         			<li>Improved child process cleanup on SIGKILL</li>
+         			<li>Fixed rag-v1 on Linux</li>
+    			</ul>
+			</description>
+		</release>
 		<release version="0.3.25" date="2025-09-04">
 		    <url type="details">https://lmstudio.ai/blog/lmstudio-v0.3.25</url>
 			<description>
