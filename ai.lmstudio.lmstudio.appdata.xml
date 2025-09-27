@@ -34,6 +34,26 @@
 	<launchable type="desktop-id">ai.lmstudio.lmstudio.desktop</launchable>
 
 	<releases>
+	    <release version="0.3.27" date="2025-09-24">
+			<url type="details">https://lmstudio.ai/blog/lmstudio-v0.3.27</url>
+			<description>
+			    <ul>
+					<li>Improved VRAM usage estimation, especially when flash attention is enabled</li>
+					<li>Setting to control whether to open the downloads panel after starting a model download (default: false)</li>
+					<li>Update CLI (lms) output colors to have better contrast in light mode</li>
+					<li>Fix a bug where copy buttons would sometimes not appear on conversation code blocks</li>
+					<li>New: Find in Chat (Cmd/Ctrl+F) and Search All Chats (Cmd/Ctrl+Shift+F)</li>
+					<li>New: Sort chats sidebar by date updated, date created, or token count</li>
+					<li>Model resources estimation will now work for vision models</li>
+					<li>Added model resources estimation to the CLI. You can now run lms load --estimate-only &lt;model-name&gt; to preview a model's estimated memory requirements before loading</li>
+					<li>While using lms chat, you can now use Ctrl^C to interrupt ongoing predictions</li>
+					<li>Additional model quantization files downloaded after the main model will now be properly nested under it</li>
+					<li>Improved memory usage estimation used for model loading guardrails</li>
+					<li>Now memory estimation will take into account selected context lengths</li>
+					<li>lms ps --json now reports model generation status and the number of queued prediction requests</li>
+				</ul>
+			</description>
+		</release>
 	    <release version="0.3.26" date="2025-09-15">
 			<url type="details">https://lmstudio.ai/blog/lmstudio-v0.3.26</url>
 			<description>
